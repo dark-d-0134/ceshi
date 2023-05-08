@@ -14,8 +14,13 @@ function HelloCodeTitle(props) {
   return <h1>Hello, {props.name}</h1>;
 }
 ```
+### 代码块高亮
+`// highlight-next-line`
+
 
 ### 代码块显示行号
+
+`showLineNumbers=true`
 
 ```ts title="代码块显示行号" showLineNumbers=true
 function HelloCodeTitle(props) {
@@ -25,6 +30,7 @@ function HelloCodeTitle(props) {
 ```
 
 ### 代码块隐藏复制按钮
+`hideCopyButton=true`
 
 ```ts title="代码块隐藏复制按钮" hideCopyButton=true
 function HelloCodeTitle(props) {
@@ -34,7 +40,31 @@ function HelloCodeTitle(props) {
 ```
 
 ### 实时编辑代码块
+```markdown title="实时编辑代码块" showLineNumbers=true
+<!-- 复制时去除tab位 -->
+    ```jsx live
+    function Clock(props) {
+      const [date, setDate] = useState(new Date());
+      useEffect(() => {
+        const timerID = setInterval(() => tick(), 1000);
 
+        return function cleanup() {
+          clearInterval(timerID);
+        };
+      });
+
+      function tick() {
+        setDate(new Date());
+      }
+
+      return (
+        <div>
+          <h2>It is {date.toLocaleTimeString()}.</h2>
+        </div>
+      );
+    }
+    ```
+```  
 ```jsx live
 function Clock(props) {
   const [date, setDate] = useState(new Date());
@@ -57,7 +87,6 @@ function Clock(props) {
   );
 }
 ```
-
 
 
 ## 选项卡
